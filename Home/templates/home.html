@@ -1,0 +1,171 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+{% block head %}
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+
+        {% block title %}
+            <title>My Portfolio</title>
+        {% endblock %}
+    </head>
+{% endblock %}
+
+<body>
+
+{% block content %}
+
+    <section class="hero is-fullheight" style="background-color: lightgray">
+
+        <div class="hero-head">
+            {% block navigation %}
+                <nav class="navbar" role="navigation" aria-label="main navigation">
+                    <div class="navbar-brand">
+                        <a class="navbar-item is-large" href="{% url 'Home:home' %}">
+                            <strong style="font-size: 30px;">
+                                My Portfolio
+                            </strong>
+                            &nbsp;
+                            <img src="https://bulma.io/assets/Bulma%20Icon.png">
+                        </a>
+
+                        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                           data-target="navbarBasicExample">
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                        </a>
+                    </div>
+
+                    <div id="navbarBasicExample" class="navbar-menu">
+                        <div class="navbar-start">
+                            <a class="navbar-item is-large">
+                                <strong>About Me</strong>
+                            </a>
+
+                            <a class="navbar-item" href="{% url 'home:myProjects' %}">
+                                <strong>My Projects</strong>
+
+                            </a>
+
+
+                        </div>
+                    </div>
+
+                    <div id="navbarBasicExample" class="navbar-menu">
+                        <div class="navbar-end">
+                            <a class="navbar-item is-large" href="https://github.com/cjuanito797" target="_blank">
+                                <strong>My Repository</strong>
+                                &nbsp;
+                                <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png">
+                            </a>
+                            <a class="navbar-item is-large">
+                                <strong>Contact Me</strong>
+                            </a>
+                        </div>
+                    </div>
+
+
+                </nav>
+            {% endblock %}
+
+        </div>
+        {% block mainbody %}
+
+            <section class="section is-medium column is-zero has-text-centered is-half-height"
+                     style="margin-left: 25%; width: 50%;">
+                <h1 class="title">About Me</h1>
+                <h2 class="subtitle">
+                    Hello my name is Juan Lizarraga, and i'm a current web developer. I am a recent graduate from the
+                    University of Nebraska Omaha, with a bachelors degree in Computer Science. My emphasis through my
+                    undergraduate career was, how I could gain the intuition in order to develop better web
+                    applications.
+                    Currently I utilize the Django web framework in order to build my current applications. One of the
+                    things
+                    that I'm the most proud of is simply the growth that I have seen in myself, when it comes to
+                    developing
+                    the web applications.
+                </h2>
+            </section>
+
+            <section class="section is-medium column is-zero has-text-centered" style="margin-left: 25%; width: 50%;">
+                <h1 class="title">My Projects</h1>
+                <h2 class="subtitle">
+                    Below are the projects, that I consider to be my best work. Each link is clickable and all websites
+                    are currently active. You can read more about my projects and my contributions, on the <strong>My
+                    Projects</strong> page.
+                </h2>
+
+
+                <div class="columns">
+                    <div class="column">
+                        <img src="../static/AppleNail.png" style="width: 1000px; height: 250px; border-radius: 10px;">
+                    </div>
+                    <div class="column"><strong>The Apple Nail Salon & Spa is a project that was developed for my Senior
+                        Capstone course project. In this project me and my team developed a hybrid scheduling system in
+                        order
+                        to allow customers to book appointments and allows for management to manage walk in
+                        guests.</strong></div>
+                    <div class="column has-text-centered"><a class="button is-fullwidth is-link"
+                                                             style="margin-top: 15%;" href="http://18.191.120.167:8000/"
+                                                             target="_blank">Visit</a></div>
+                </div>
+
+                <div class="columns">
+                    <div class="column">
+                        <img src="../static/BookClub.png" style="width: 1000px; height: 250px; border-radius: 10px;">
+                    </div>
+                    <div class="column"><strong>This was a student led project in which we developed a social networking
+                        site for local book users, known as "The Book Club". The idea was to enhance a sense of
+                        community among local book users. Here
+                        registered users may add books to their collection and also engage with other users via
+                        messaging,
+                        if they are interested in performing a book exchange with another user.</strong></div>
+                    <div class="column has-text-centered"><a class="button is-fullwidth is-link"
+                                                             style="margin-top: 15%;"
+                                                            href="http://18.218.231.44:8000" target="_blank">Visit</a></div>
+
+                </div>
+
+                <div class="columns">
+                    <div class="column">
+                        <img src="../static/chineseSpicy.png"
+                             style="width: 1000px; height: 250px; border-radius: 10px;">
+                    </div>
+                    <div class="column"><strong>This was a solo project of mine, in a web applications development
+                        course
+                        during my undergraduate tenure. This was my first full fledged "web application", and the
+                        outcome was an
+                        online ordering system for a chinese restaurant. Where both registered and non-registered users
+                        can place
+                        orders.</strong></div>
+                    <div class="column has-text-centered"><a class="button is-fullwidth is-link"
+                                                             style="margin-top: 15%;" href="http://18.223.112.90:8000"
+                                                                target="_blank">Visit</a></div>
+
+                </div>
+
+                <div class="columns">
+                    <div class="column">
+                        <img src="../static/ToDo.png"
+                             style="width: 1000px; height: 250px; border-radius: 10px;">
+                    </div>
+                    <div class="column"><strong>This was another self-project of mine which was done as a self
+                        project for my Intro To Software Engineering course, the emphasis of this project to get
+                        more comftorable working with Django's SQLite database as well as the vue.js
+                        front-end framework, in order to build a full-fledged ToDo application.
+                    </strong></div>
+                    <div class="column has-text-centered"><a class="button is-fullwidth is-link"
+                                                             style="margin-top: 15%;" href="">Visit</a></div>
+                </div>
+            </section>
+            </section>
+        {% endblock %}
+    </body>
+
+{% endblock %}
+</html>
