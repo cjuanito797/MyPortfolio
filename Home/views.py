@@ -23,17 +23,35 @@ def contactMe(request):
     # pass in our contact me form here for processing
 
     if request.method == 'POST':
-        subject = request.POST['subject']
-        message = request.POST['message']
+        form = ContactMe(request.POST)
+        if form.is_valid():
+            sender = form.cleaned_data['email']
+            subject = form.cleaned_data['subject']
+            message = form.cleaned_data['message']
 
-        send_mail(
-            subject,
-            message,
-            settings.EMAIL_HOST_USER,
-            ['cjuangas17@gmail.com'],
-            fail_silently=False
-        )
+            plaintext = get_template ('email.txt')
+            htmlEmail = get_template ('email.html')
 
-        return redirect('home:home')
+            content = ({
+                'sender': sender,
+                'subject': subject,
+                'message': message
+            })
 
-    return render (request, "contactMe.html")
+            text_content = plaintext.render (content)
+            html_content = htmlEmail.render (content)
+            reciever = 'cjuangas17@gmail.com'
+            msg = EmailMultiAlternatives ("Appointment has been re-scheduled", html_content,
+                                      settings.EMAIL_HOST_USER,
+                                      [reciever])
+
+            msg.attach_alternative (html_content, "text/html")
+            msg.send ( )
+
+        return redirect ('home:home')
+
+
+    else:
+        form = ContactMe ( )
+
+    return render (request, "contactMe.html", {'form': form})
