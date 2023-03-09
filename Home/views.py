@@ -40,7 +40,7 @@ def contactMe(request):
 
             text_content = plaintext.render (content)
             html_content = htmlEmail.render (content)
-            reciever = 'cjuangas17@gmail.com'
+            reciever = 'cfanito797@icloud.com'
             msg = EmailMultiAlternatives ("Appointment has been re-scheduled", html_content,
                                       settings.EMAIL_HOST_USER,
                                       [reciever])
