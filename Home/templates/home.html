@@ -12,6 +12,30 @@
         {% block title %}
             <title>My Portfolio</title>
         {% endblock %}
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+
+                // Get all "navbar-burger" elements
+                const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+                // Add a click event on each of them
+                $navbarBurgers.forEach(el => {
+                    el.addEventListener('click', () => {
+
+                        // Get the target from the "data-target" attribute
+                        const target = el.dataset.target;
+                        const $target = document.getElementById(target);
+
+                        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                        el.classList.toggle('is-active');
+                        $target.classList.toggle('is-active');
+
+                    });
+                });
+
+            });
+        </script>
     </head>
 {% endblock %}
 
@@ -51,9 +75,6 @@
 
 
                         </div>
-                    </div>
-
-                    <div id="navbarBasicExample" class="navbar-menu">
                         <div class="navbar-end">
                             <a class="navbar-item is-large" href="https://github.com/cjuanito797" target="_blank">
                                 <strong>My Repository</strong>
@@ -64,7 +85,10 @@
                                 <strong>Contact Me</strong>
                             </a>
                         </div>
+                    
                     </div>
+
+
 
 
                 </nav>
@@ -124,7 +148,8 @@
                         if they are interested in performing a book exchange with another user.</strong></div>
                     <div class="column has-text-centered"><a class="button is-fullwidth is-link"
                                                              style="margin-top: 15%;"
-                                                            href="http://18.218.231.44:8000" target="_blank">Visit</a></div>
+                                                             href="http://18.218.231.44:8000" target="_blank">Visit</a>
+                    </div>
 
                 </div>
 
@@ -142,7 +167,7 @@
                         orders.</strong></div>
                     <div class="column has-text-centered"><a class="button is-fullwidth is-link"
                                                              style="margin-top: 15%;" href="http://18.223.112.90:8000"
-                                                                target="_blank">Visit</a></div>
+                                                             target="_blank">Visit</a></div>
 
                 </div>
 
