@@ -41,7 +41,7 @@ def contactMe(request):
             text_content = plaintext.render (content)
             html_content = htmlEmail.render (content)
             reciever = 'cfanito797@icloud.com'
-            msg = EmailMultiAlternatives ("My Portfolio contact", html_content,
+            msg = EmailMultiAlternatives ("My Portfolio", html_content,
                                       settings.EMAIL_HOST_USER,
                                       [reciever])
 
