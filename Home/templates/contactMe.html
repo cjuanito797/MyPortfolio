@@ -12,9 +12,16 @@
         </h2>
 
         <!-- insert the "contact me" form here-->
-        <form method="POST">
+        <form method="POST" action="{% url 'home:contactMe' %}">
             {% csrf_token %}
 
+            <div class="field">
+                <div class="has-icons-right">
+                    <input class="input is-medium" type="email" name="email" required id="id_email"
+                           placeholder="E-mail">
+
+                </div>
+            </div>
 
             <div class="field">
                 <div class=" has-icons-right">
