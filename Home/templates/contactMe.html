@@ -1,0 +1,40 @@
+{% extends 'home.html' %}
+
+
+{% block mainbody %}
+
+    <section class="section is-medium column is-zero has-text-centered is-half-height"
+             style="margin-left: 25%; width: 50%;">
+        <h1 class="title">Contact Me</h1>
+        <h2 class="subtitle">
+            Please utilize the form below if you would like to contact me pertaining to any questions you may have
+            or if you would like to collaborate on a future project.
+        </h2>
+
+        <!-- insert the "contact me" form here-->
+        <form method="POST">
+            {% csrf_token %}
+
+
+            <div class="field">
+                <div class=" has-icons-right">
+                    <input class="input is-medium" type="text" name="subject" maxlength="50" required id="id_subject"
+                           placeholder="Subject">
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control has-icons-left has-icons-right">
+
+                    <textarea class="textarea" placeholder="Enter your message here." name="message" required
+                              id="id_message"></textarea>
+
+                </div>
+            </div>
+
+            <button class="button is-block is-primary is-large is-fullwidth" type="submit">Contact Me!</button>
+
+        </form>
+    </section>
+
+{% endblock %}

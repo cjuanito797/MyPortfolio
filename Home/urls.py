@@ -7,6 +7,7 @@ app_name = 'home'
 urlpatterns = [
     path("", views.home, name="home"),
     path("myProjects/", views.myProjects, name="myProjects"),
+    path("contactMe/", views.contactMe, name="contactMe"),
 
 
 ]

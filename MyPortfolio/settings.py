@@ -10,11 +10,18 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+import os.path
 from pathlib import Path
+
+PROJECT_ROOT = os.path.normpath (os.path.dirname (__file__))
+
+DEBUG = True
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path (__file__).resolve ( ).parent.parent
-import os
+
+MEDIA_ROOT = os.path.join (BASE_DIR, 'media')
+MEDIA_URL = ''
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -25,7 +32,7 @@ SECRET_KEY = "django-insecure-b$s#1nq#7v$pz+h5r+-gaxvn)1!-w5em*%arh_6e-6s))z8i(y
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["18.222.181.214", "127.0.0.1"]
+ALLOWED_HOSTS = ["18.222.181.214", "127.0.0.1", "*"]
 
 # Application definition
 
@@ -106,9 +113,21 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# SMTP Configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'cfanito797@gmail.com'
+EMAIL_HOST_PASSWORD = 'qnsxtszqbooukhwp'
+EMAIL_USE_SSL = False
+
+DEFAULT_FROM_EMAIL = 'cfanito797@gmail.com'
+SERVER_EMAIL = 'cfanito797@gmail.com'

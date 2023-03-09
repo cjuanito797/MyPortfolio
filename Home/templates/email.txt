@@ -1,0 +1,7 @@
+Hello Juan,
+
+You have a new e-mail from: {{ sender }}
+------------------------------------------------------
+Subject: {{ subject }}
+
+Message: {{ message }}
